@@ -16,15 +16,14 @@ class CreateBillsTable extends Migration
         // Счета к оплате
         Schema::create('bills', function (Blueprint $table) {
             $table->id();                       // Номер выставленного счёта
-            $table->integer('resident_id');     // Ссылка на дачника
-            $table->integer('period_id');       // Ссылка на период
+            $table->bigInteger('resident_id')->unsigned();     // Ссылка на дачника
+            $table->bigInteger('period_id')->unsigned();       // Ссылка на период
             $table->float('amount_rub');        // Сумма к оплате
-
             // Дачнику за период выставляется только один счёт
             $table->unique(['resident_id', 'period_id']);
             $table->foreign('resident_id')              // Внешний ключ: нельзя удалять дачника
                   ->references('id')->on('residents');  // которому уже выставлен счёт
-            $table->foreign('period_id')                // Внешний ключ: нельзя удалять период 
+            $table->foreign('period_id')                // Внешний ключ: нельзя удалять период
                   ->references('id')->on('periods');    // по которому уже выставлен счёт
         });
     }
