@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->bigInteger('period_id')->unsigned();       // Ссылка на период
-            $table->float('price');
+            $table->float('price'); // цена на тариф
         });
     }
 
