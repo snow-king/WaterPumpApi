@@ -21,12 +21,10 @@ class AuthService
      */
     public function login(string $login, string $password): JsonResponse
     {
-            Log::info($login." ".$password);
             $user = User::where('email', $login)->where('password', $password)->get()->last();
             if (!$user) {
                 return $this->onError(403, 'no access');
             }
-            $gateKipper = true;
             return response()->json([
                 'status' => true,
                 'message' => 'User Logged In Successfully',
