@@ -5,11 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Tariff extends Model
+class Resident extends Model
 {
     use HasFactory;
-    protected $fillable = [
-        'period',
-        'price'
-    ];
 }

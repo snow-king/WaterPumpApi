@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tariff', function (Blueprint $table) {
+        Schema::create('tariffs', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->bigInteger('period_id')->unsigned();       // Ссылка на период
